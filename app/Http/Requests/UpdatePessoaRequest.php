@@ -25,8 +25,8 @@ class UpdatePessoaRequest extends FormRequest
     {
         return [
             "nome" => 'required',
-            "email" =>'required',
-            'telefone' => 'required'
+            "email" =>'required|unique:pessoas',
+            'telefone' => 'required:unique:pessoas'
         ];
     }
 }
