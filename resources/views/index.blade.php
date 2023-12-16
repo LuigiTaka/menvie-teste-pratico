@@ -3,11 +3,12 @@
 
 @section("main")
 <div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
+    <div class="col-lg-12 my-2">
+        <div class="">
             <h2> Menvie CRUD - Lista de Registros </h2>
         </div>
-        <div class="pull-right mb-2">
+
+        <div class="">
             <a class="btn btn-success" href="{{ route('pessoas.create') }}"> Novo cadastro</a>
         </div>
     </div>
@@ -40,7 +41,6 @@
                     <a class="btn btn-primary" href="{{ route('pessoas.edit',$pessoa->id) }}">Editar</a>
                     @csrf
                     @method('DELETE')
-                    <!-- @todo Adicionar confirmação -->
                     <button type="submit" class="btn btn-danger">Deletar</button>
                 </form>
             </td>
