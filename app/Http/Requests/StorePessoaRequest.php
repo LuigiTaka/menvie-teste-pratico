@@ -25,7 +25,7 @@ class StorePessoaRequest extends FormRequest
     {
         return [
             "nome" => "required",
-            "email" => "required|unique:pessoas",
+            "email" => "required|unique:pessoas|email:rfc",
             "telefone" => "required|unique:pessoas",
         ];
     }
