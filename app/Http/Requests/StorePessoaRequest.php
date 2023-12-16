@@ -26,7 +26,7 @@ class StorePessoaRequest extends FormRequest
         return [
             "nome" => "required",
             "email" => "required|unique:pessoas|email:rfc",
-            "telefone" => "required|unique:pessoas",
+            "telefone" => "required|unique:pessoas|digits_between:3,15",
         ];
     }
 }
