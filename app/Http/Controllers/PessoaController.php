@@ -81,10 +81,20 @@ class PessoaController extends Controller
      */
     public function update(UpdatePessoaRequest $request, Pessoa $pessoa): RedirectResponse
     {
-        $request->validate( (new UpdatePessoaRequest())->rules() );
+
+        $ruleEmail = "unique:pessoas,email,{$pessoa->id}";
+        $ruleTelefone = "unique:pessoas,telefone,{$pessoa->id}";
+
+        $request->validate( [
+
+                "nome" => 'required',
+                "email" =>"required|email:rfc|$ruleEmail",
+                'telefone' => "required|digits_between:3,15|$ruleTelefone"
+
+        ] );
         $pessoa->fill( $request->post() )->save();
 
-        return redirect()->route("pessoas.index")->with("success","Registro criado com sucesso");
+        return redirect()->route("pessoas.index")->with("success","Registro atualizado com sucesso");
     }
 
     /**

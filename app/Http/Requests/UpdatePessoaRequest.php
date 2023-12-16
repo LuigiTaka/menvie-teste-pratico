@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdatePessoaRequest extends FormRequest
 {
@@ -23,10 +24,6 @@ class UpdatePessoaRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            "nome" => 'required',
-            "email" =>'required|unique:pessoas|email:rfc',
-            'telefone' => 'required:unique:pessoas'
-        ];
+        return [];
     }
 }
